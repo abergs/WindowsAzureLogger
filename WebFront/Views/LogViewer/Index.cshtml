@@ -1,0 +1,67 @@
+﻿@model IOrderedEnumerable<TableStorageLogger.Entry>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta http-equiv="refresh" content="20">
+    <title>@DateTime.UtcNow.ToLongTimeString() ON @DateTime.UtcNow.ToShortDateString() UTC</title>
+</head>
+<body>
+    <div>
+        <table aria-multiline="True" aria-readonly="True" contenteditable="false">
+            <tr>
+                <th style="text-align: justify; border-bottom: 1px solid black;">Service
+                </th>
+                <th style="text-align: justify; border-bottom: 1px solid black;">Event
+                </th>
+                <th style="text-align: justify; border-bottom: 1px solid black;">Created
+                </th>
+                <th style="text-align: justify; border-bottom: 1px solid black;">Details
+                </th>
+                <th></th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    @if (item.Event == "Error")
+                    {
+                        <td style="border-bottom: 3px solid red; border-top: 3px solid red; padding: 5px; background-color: rgb(255, 250, 215)">
+                            @Html.DisplayFor(modelItem => item.Service)
+                        </td>
+                        <td style="border-bottom: 3px solid red; border-top: 3px solid red; padding: 5px; background-color: rgb(255, 250, 215)">
+                            @Html.DisplayFor(modelItem => item.Event)
+                        </td>
+                        <td style="border-bottom: 3px solid red; border-top: 3px solid red; padding: 5px; background-color: rgb(255, 250, 215)">
+                            @Html.DisplayFor(modelItem => item.Created)
+                        </td>
+                        <td style="border-bottom: 3px solid red; border-top: 3px solid red; padding: 5px; background-color: rgb(255, 250, 215)">
+                            @Html.DisplayFor(modelItem => item.Details)
+                        </td>
+                    }
+                    else
+                    {
+                        <td style="border-bottom: 1px solid black; padding: 5px;">
+                            @Html.DisplayFor(modelItem => item.Service)
+                        </td>
+                        <td style="border-bottom: 1px solid black; padding: 5px;">
+                            @Html.DisplayFor(modelItem => item.Event)
+                        </td>
+                        <td style="border-bottom: 1px solid black; padding: 5px;">
+                            @Html.DisplayFor(modelItem => item.Created)
+                        </td>
+                        <td style="border-bottom: 1px solid black; padding: 5px;">
+                            @Html.DisplayFor(modelItem => item.Details)
+                        </td>
+                    }
+                </tr>
+            }
+        </table>
+    </div>
+</body>
+</html>
