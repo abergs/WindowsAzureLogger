@@ -1,9 +1,9 @@
 WindowsAzureLogger
 ==================
 
-Contains a Logger that batches messages and persits them in Windows Azure Table Storage
+Contains a Logger that batches messages and persists them in Windows Azure Table Storage
 
-Contains a Web MVC 4 project with a page that auto refreshes to display revent log entries.
+Contains a Web MVC 4 project with a page that auto refreshes to display event log entries.
 
 Edit the cloud configurations to set your StorageConnectionString
 
